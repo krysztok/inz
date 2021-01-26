@@ -26,23 +26,23 @@ Gdzie:<br/>
 
 
 # Krótki opis klas
-klasa Calculations<br/>
+**Klasa Calculations**<br/>
 przechowuje informacje o wszystkich przeprowadzonych iteracjach(współrzędne cząsteczek oraz najlepsze rozwiązanie znalezione do danej iteracji)
 
-klasa OpFunction<br/>
+**Klasa OpFunction**<br/>
 na razie na sztywno jedna funkcja, późnie zmienię na interfejs, wtedy każda optymalizowana funkcja będzie musiała zaimplementować 3 funkcję:<br/>
 - getvalue - obliczenie wartości funkcji dla danej cząsteczki<br/>
 - isBetter - metoda porównująca dwie wartości funkcji; np jeśli funkcja ma dążyć do minimum, ma zwracać true dla mniejszej wartości<br/>
 - getBestSolutionString - potrzebne do wyświetlenia w gui; pokazuje najlepszą możliwą wartość optymalizowanej funkcji
 
-klasa Particle<br/>
+**Klasa Particle**<br/>
 przechowuje właściwości każedej cząśteczki, czyli<br/>
 - aktualne położenie<br/>
 - aktualną prędkość<br/>
 - położenie najlepszego znalezionego rozwiązania przez tę cząsteczkę<br/>
 - wartość najlepszego znalezionego rozwiązania przez tę cząsteczkę
 
-klasa POS<br/>
+**Klasa POS**<br/>
 klasa implementująca alogrytm <br/>
 posiada<br/>
 - współczynnik bezwładonści<br/>
@@ -52,7 +52,7 @@ posiada<br/>
 - liczbę iteracji<br/>
 - listę cząsteczek<br/>
 - informacje o wszystkich poprzednich przeprowadzonch iteracjach<br/>
-- zakres funkcji (min, max0)<br/>
+- zakres funkcji (min, max)<br/>
 - współczynnik uczenia<br/>
 - optymalizowaną funkcję
 
@@ -60,10 +60,10 @@ metody:<br/>
 - initialize - losuje początkowe wartości(położenie i prędkość każdej cząśteczki) oraz znajduje najlepsze globalne rozwiązanie<br/>
 - runIteration - przeprowadza jedną iterację algorytmu<br/>
 
-klasa Vector<br/>
+**Klasa Vector**<br/>
 przechowuje współrzędne cząsteczki<br/>
 
-klasa Controller<br/>
+**Klasa Controller**<br/>
 klasa odpowiadająca za działanie GUI<br/>
 metody:<br/>
 - initialize - inicjalizuje wszystkie pola(wartości początkowe oraz sprawdzanie poprawności wpisywanych danych) oraz zachowanie suwaka<br/>
