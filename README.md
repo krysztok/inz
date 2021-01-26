@@ -31,46 +31,46 @@ przechowuje informacje o wszystkich przeprowadzonych iteracjach(współrzędne c
 
 klasa OpFunction<br/>
 na razie na sztywno jedna funkcja, późnie zmienię na interfejs, wtedy każda optymalizowana funkcja będzie musiała zaimplementować 3 funkcję:<br/>
--getvalue - obliczenie wartości funkcji dla danej cząsteczki<br/>
--isBetter - metoda porównująca dwie wartości funkcji; np jeśli funkcja ma dążyć do minimum, ma zwracać true dla mniejszej wartości<br/>
--getBestSolutionString - potrzebne do wyświetlenia w gui; pokazuje najlepszą możliwą wartość optymalizowanej funkcji
+- getvalue - obliczenie wartości funkcji dla danej cząsteczki<br/>
+- isBetter - metoda porównująca dwie wartości funkcji; np jeśli funkcja ma dążyć do minimum, ma zwracać true dla mniejszej wartości<br/>
+- getBestSolutionString - potrzebne do wyświetlenia w gui; pokazuje najlepszą możliwą wartość optymalizowanej funkcji
 
 klasa Particle<br/>
 przechowuje właściwości każedej cząśteczki, czyli<br/>
--aktualne położenie<br/>
--aktualną prędkość<br/>
--położenie najlepszego znalezionego rozwiązania przez tę cząsteczkę<br/>
--wartość najlepszego znalezionego rozwiązania przez tę cząsteczkę
+- aktualne położenie<br/>
+- aktualną prędkość<br/>
+- położenie najlepszego znalezionego rozwiązania przez tę cząsteczkę<br/>
+- wartość najlepszego znalezionego rozwiązania przez tę cząsteczkę
 
 klasa POS<br/>
 klasa implementująca alogrytm <br/>
 posiada<br/>
--współczynnik bezwładonści<br/>
--współczynnik dążenia do najlepszego lokalnego rozwiązania<br/>
--współczynnik dążenia do najlepszego globalnego rozwiązania<br/>
--liczbę cząsteczek<br/>
--liczbę iteracji<br/>
--listę cząsteczek<br/>
--informacje o wszystkich poprzednich przeprowadzonch iteracjach<br/>
--zakres funkcji (min, max0)<br/>
--współczynnik uczenia<br/>
--optymalizowaną funkcję
+- współczynnik bezwładonści<br/>
+- współczynnik dążenia do najlepszego lokalnego rozwiązania<br/>
+- współczynnik dążenia do najlepszego globalnego rozwiązania<br/>
+- liczbę cząsteczek<br/>
+- liczbę iteracji<br/>
+- listę cząsteczek<br/>
+- informacje o wszystkich poprzednich przeprowadzonch iteracjach<br/>
+- zakres funkcji (min, max0)<br/>
+- współczynnik uczenia<br/>
+- optymalizowaną funkcję
 
 metody:<br/>
--initialize - losuje początkowe wartości(położenie i prędkość każdej cząśteczki) oraz znajduje najlepsze globalne rozwiązanie<br/>
--runIteration - przeprowadza jedną iterację algorytmu<br/>
+- initialize - losuje początkowe wartości(położenie i prędkość każdej cząśteczki) oraz znajduje najlepsze globalne rozwiązanie<br/>
+- runIteration - przeprowadza jedną iterację algorytmu<br/>
 
 klasa Vector<br/>
 przechowuje współrzędne cząsteczki<br/>
 
 klasa Controller<br/>
 klasa odpowiadająca za działanie GUI<br/>
-metody<br/>
--initialize - inicjalizuje wszystkie pola(wartości początkowe oraz sprawdzanie poprawności wpisywanych danych) oraz zachowanie suwaka<br/>
--startCalcualtions - ustawia wszystkie wpisane parametry z GUI do klasy POS, a następnie wywołuje określoną ilość iteracji<br/>
+metody:<br/>
+- initialize - inicjalizuje wszystkie pola(wartości początkowe oraz sprawdzanie poprawności wpisywanych danych) oraz zachowanie suwaka<br/>
+- startCalcualtions - ustawia wszystkie wpisane parametry z GUI do klasy POS, a następnie wywołuje określoną ilość iteracji<br/>
 
 # ToDo<br/>
--dodanie funkcji do optymalizacji(na razie jest tylko jedna na sztywno)<br/>
--poprawienie wyświetlania punktów<br/>
--dodanie zapisywania do txt i jsona<br/>
--uporządkowanie kodu
+- dodanie funkcji do optymalizacji(na razie jest tylko jedna na sztywno)<br/>
+- poprawienie wyświetlania punktów<br/>
+- dodanie zapisywania do txt i jsona<br/>
+- uporządkowanie kodu
