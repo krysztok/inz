@@ -31,21 +31,21 @@ f (x1, x2) = x1^2 + 2 * x2^2 − 0.3 * cos(3Π ∗ x1) − 0.4cos(4Π ∗ x2) + 
 w zakresie zmienennych -50 <= xi <= 50 posiada minimum globalne dla x1=x2=0 o wartości równej 0
 
 Program pozwala ustawić oraz sprawdza poprawność wprowadzonych parametrów:
-- zakres funkcji (liczba zmiennoprzecinkowa maksymalnie 5-cio cyfrowa z 4-ema miejscami po przecinku, jeśli zakres od > zakres do to wartości zamienią się miejscami)
+- zakres funkcji (liczba zmiennoprzecinkowa maksymalnie 5-cio cyfrowa z 4-ema miejscami po przecinku, jeśli min > max to wartości zamienią się miejscami)
 - liczba cząsteczek (dodatnia liczba całkowita maksymalnie 5-cio cyfrowa)
 - liczba iteracji (dodatnia liczba całkowita maksymalnie 5-cio cyfrowa)
 - współczynniki (liczby zmiennoprzecinkowe z maksymalnie 6-oma miejscami po przecinku, w zakresie <0,1>)
 
-Po wciśnięciu przycisku "licz" program przeprowadza symulację algorytmu. Następnie, przy pomocy suwaka na dole ekranu, można wybrać daną iterację, po czym na wykresie można obserwować położenie cząsteczek, a po prawej stronie można odczytać współrzędne i wartość każdej cząsteczki oraz najlepsze znalezione rozwiązanie do danej iteracji. Przyciski zapisania (zapisz jako txt i zapisz jako json) na razie nie działają)
+Po wciśnięciu przycisku "licz" program przeprowadza symulację algorytmu. Następnie, przy pomocy suwaka na dole ekranu, można wybrać daną iterację, po czym na wykresie można obserwować położenie cząsteczek, a po prawej stronie można odczytać współrzędne i wartość każdej cząsteczki oraz najlepsze znalezione rozwiązanie do danej iteracji. Przyciski zapisania (zapisz jako txt i zapisz jako json) na razie nie działają.
 
 # Krótki opis klas
 **Klasa Calculations**<br/>
 Przechowuje informacje o wszystkich przeprowadzonych iteracjach(współrzędne cząsteczek oraz najlepsze rozwiązanie znalezione do danej iteracji)
 
 **Klasa OpFunction**<br/>
-Na razie na sztywno jedna funkcja, późnie zmienię na interfejs, wtedy każda optymalizowana funkcja będzie musiała zaimplementować 3 funkcję:<br/>
+Na razie na sztywno jedna funkcja, później zmienię na interfejs, wtedy każda optymalizowana funkcja będzie musiała zaimplementować 3 funkcje:<br/>
 - getvalue - obliczenie wartości funkcji dla danej cząsteczki<br/>
-- isBetter - metoda porównująca dwie wartości funkcji; np jeśli funkcja ma dążyć do minimum, ma zwracać true dla mniejszej wartości<br/>
+- isBetter - metoda porównująca dwie wartości funkcji; np. jeśli funkcja ma dążyć do minimum, ma zwracać true dla mniejszej wartości<br/>
 - getBestSolutionString - potrzebne do wyświetlenia w gui; pokazuje najlepszą możliwą wartość optymalizowanej funkcji
 
 **Klasa Particle**<br/>
