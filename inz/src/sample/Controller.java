@@ -340,10 +340,10 @@ public class Controller implements Initializable {
         }
 
         pos.initialize();
-
        for (int i = 0; i < pos.getIterationsNumber(); i++){
             pos.runIteration();
-           iterationsSlider.setValue(i);
+            //System.out.println(i);
+           //iterationsSlider.setValue(i);
         }
 
        iterationsSlider.setDisable(false);
