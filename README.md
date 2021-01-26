@@ -1,6 +1,6 @@
 # inz
-![alt text](https://github.com/krysztok/screen-gui1.png)
-![alt text](https://github.com/krysztok/screen-gui2.png)
+![alt text](https://github.com/krysztok/inz/blob/main/screen-gui1.png)
+![alt text](https://github.com/krysztok/inz/blob/main/screen-gui2.png)
 
 Algorytm optymalizacji za pomocą roju cząstek
 Każda cząsteczka posiada położenie oraz wektor określający kierunek w jakim się porusza. Dodatkowo zapamiętywane jest najlepsze rozwiązanie znalezione przez każdą z cząstek oraz najlepsze rozwiązanie z całego roju. Na ich podstawie oraz na podstawie prędkości w poprzednim kroku obliczany jest nowy wektor przemieszczenia. 
