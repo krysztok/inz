@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.7089201877934272" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <items>
+      <VBox maxWidth="-Infinity" minWidth="930.0" prefHeight="718.0" prefWidth="930.0">
+         <children>
+            <GridPane prefHeight="754.0" prefWidth="930.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="718.0" minHeight="10.0" prefHeight="659.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="583.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="minVisText" layoutX="137.0" layoutY="649.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-50.0" />
+                        <Text fx:id="maxVisText" layoutX="770.0" layoutY="649.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50.0" />
+                        <Text fx:id="halfVisText1" layoutX="137.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                        <Text fx:id="maxVisText1" layoutX="137.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50.0" />
+                        <Canvas id="canvas" fx:id="canvas" height="610.0" layoutX="160.0" layoutY="23.0" width="610.0" />
+                        <Text fx:id="halfVisText" layoutX="454.0" layoutY="649.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children></AnchorPane>
+                  <Slider id="iterationsSlider" fx:id="iterationsSlider" blockIncrement="1" majorTickUnit="10.0" max="50.0" maxWidth="-Infinity" minWidth="-Infinity" minorTickCount="1" prefHeight="38.0" prefWidth="920.0" showTickLabels="true" showTickMarks="true" GridPane.rowIndex="1" />
+                  <GridPane GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <VBox maxWidth="-Infinity" minWidth="350.0" prefHeight="718.0" prefWidth="382.0">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="212.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="367.0" minWidth="10.0" prefWidth="129.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <MenuButton id="functionChooser" fx:id="functionChooser" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text=" Bohachevsky’ego" GridPane.columnIndex="1">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Optymalizowana funkcja:" wrappingWidth="145.6328125" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Liczba cząsteczek:" wrappingWidth="138.13671875" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Liczba iteracji:" GridPane.rowIndex="3" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Wsp. bezwładności:" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Wsp. dążenia do naj. rozw. lokalnego:" GridPane.rowIndex="5" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Wsp. dążenia do naj. rozw. globalnego:" GridPane.rowIndex="6" />
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Zakres funkcji od:" />
+                        <TextField id="rangeFromInput" fx:id="rangeFromInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="95.0" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="0.0" prefWidth="32.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="193.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="do:" />
+                        <TextField id="rangeToInput" fx:id="rangeToInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="95.0" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TextField id="particlesNumberInput" fx:id="particlesNumberInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField id="iterationsNumberInput" fx:id="iterationsNumberInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField id="inertiaRateInput" fx:id="inertiaRateInput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField id="localBestAspirationRateInput" fx:id="localBestAspirationRateInput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField id="globalBestAspirationRateInput" fx:id="globalBestAspirationRateInput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField id="learningRateInput" fx:id="learningRateInput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Wsp. uczenia:" GridPane.rowIndex="7" />
+                  <Button id="countButton" fx:id="countButton" mnemonicParsing="false" onAction="#startCalculations" prefWidth="127.0" text="Licz" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+               </children>
+            </GridPane>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Numer iteracji:" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Najlepsze rozwiązanie:" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Wartość optymalna:" GridPane.rowIndex="2" />
+                  <Text id="iterationsNumberTextfield" fx:id="iterationsNumberTextfield" strokeType="OUTSIDE" strokeWidth="0.0" text="0" GridPane.columnIndex="1" />
+                  <Text id="bestParticleTextfield" fx:id="bestParticleTextfield" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text id="optimalValueTextfield" fx:id="optimalValueTextfield" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <TextArea fx:id="textIterationArea" prefHeight="200.0" prefWidth="336.0" />
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Zapisz jako txt" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Zapisz jako json" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>
