@@ -89,27 +89,27 @@ public class Calculations {
 
         try {
             FileWriter myWriter = new FileWriter(filename);
-            myWriter.write("Optymalizowana funkcja: " + functionName + "\n");
-            myWriter.write("Zakres funkcji od: " + xmin + " do: " + xmax + "\n");
-            myWriter.write("Liczba cząsteczek: " + particlesNumber + "\n");
-            myWriter.write("Liczba iteracji: " + iterationsNumber + "\n");
-            myWriter.write("Współczynnik bezwładności: " + inertiaRate + "\n");
-            myWriter.write("Współczynnik dążenia do najlepszego rozwiązania lokalnego: " + localBestAspirationRate + "\n");
-            myWriter.write("Współczynnik dążenia do najlepszego rozwiązania globalnego: " + globalBestAspirationRate + "\n");
-            myWriter.write("Współczynnik uczenia: " + learningRate + "\n\n");
+            myWriter.write("Optymalizowana funkcja: " + functionName + " \r\n");
+            myWriter.write("Zakres funkcji od: " + xmin + " do: " + xmax + " \r\n");
+            myWriter.write("Liczba cząsteczek: " + particlesNumber + " \r\n");
+            myWriter.write("Liczba iteracji: " + iterationsNumber + " \r\n");
+            myWriter.write("Współczynnik bezwładności: " + inertiaRate + " \r\n");
+            myWriter.write("Współczynnik dążenia do najlepszego rozwiązania lokalnego: " + localBestAspirationRate + " \r\n");
+            myWriter.write("Współczynnik dążenia do najlepszego rozwiązania globalnego: " + globalBestAspirationRate + " \r\n");
+            myWriter.write("Współczynnik uczenia: " + learningRate + " \r\n\r\n");
 
             for(int i = 0; i < particles.size(); i++){
-                myWriter.write("Numer iteracji: " + i + "\n");
+                myWriter.write("Numer iteracji: " + i + " \n");
                 myWriter.write("Najlepsze rozwiązanie w iteracji: f( " + bestGlobalLocations.get(i).getValue(0) + " , "
-                        + bestGlobalLocations.get(i).getValue(1) + " ) = " + bestGlobalValues.get(i) +" \n");
+                        + bestGlobalLocations.get(i).getValue(1) + " ) = " + bestGlobalValues.get(i) +" \r\n");
 
                 for(int j = 0; j < particles.get(i).size(); j++){
                     Particle particle = particles.get(i).get(j);
                     myWriter.write("Cząsteczka " + j + " : f( " + particle.getLocation(0) + " , "
-                    + particle.getLocation(1) + " ) = " + opFunction.getValue(particle.getLocation()) + "\n" );
+                    + particle.getLocation(1) + " ) = " + opFunction.getValue(particle.getLocation()) + " \r\n" );
                 }
 
-                myWriter.write("\n");
+                myWriter.write("\r\n");
             }
 
             myWriter.close();
