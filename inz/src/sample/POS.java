@@ -25,18 +25,18 @@ public class POS {
         particlesNumber = 50;
         iterationsNumber = 50;
         particles = new ArrayList<>();
-        calculations = new Calculations();
-        xmin = -50;
-        xmax = 50;
+        calculations = new Calculations(this);
+        xmin = -300;
+        xmax = 300;
         learningRate = 0.5;
-        opFunction = new OpFunction();
+        opFunction = new OpFunction6();
     }
 
 
     public void initialize() {
         particles = new ArrayList<>();
         bestGlobalLocation = null;
-        calculations = new Calculations();
+        calculations = new Calculations(this);
 
         Random generator = new Random();
         for (int i = 0; i < particlesNumber; i++) {
