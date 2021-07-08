@@ -2,10 +2,10 @@ package sample;
 
 public class OpFunction2 implements OpFunction{
     // ACKLEY'A
-    public double getValue(Vector vector){
-        double x = vector.getValues().get(0);
-        double y = vector.getValues().get(1);
-        return -20 * Math.exp(-Math.sqrt((x*x +y*y)/2)/5) - Math.exp((Math.cos(Math.PI*2*x) + Math.cos(Math.PI*2*y))/2) + 20 + Math.exp(1);
+    public double getValue(Coordinates coordinates){
+        double x = coordinates.getValues().get(0);
+        double y = coordinates.getValues().get(1);
+        return -20 * Math.exp(-0.2 * Math.sqrt(0.5 * (x*x +y*y))) - Math.exp(0.5 * (Math.cos(2*Math.PI*x) + Math.cos(2*Math.PI*y))) + 20 + Math.exp(1);
     }
 
     public boolean isBetter(double oldValue, double newValue){

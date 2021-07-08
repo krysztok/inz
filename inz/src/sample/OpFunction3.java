@@ -2,14 +2,14 @@ package sample;
 
 public class OpFunction3 implements OpFunction{
     // MATYAS'A
-    public double getValue(Vector vector){
-        double x = vector.getValues().get(0);
-        double y = vector.getValues().get(1);
-        return -(0.26 * (x * x + y * y) - 0.48 * x * y);
+    public double getValue(Coordinates coordinates){
+        double x = coordinates.getValues().get(0);
+        double y = coordinates.getValues().get(1);
+        return 0.26 * (x * x + y * y) - 0.48 * x * y;
     }
 
     public boolean isBetter(double oldValue, double newValue){
-        if(newValue > oldValue){
+        if(newValue < oldValue){
             return true;
         }
         return false;

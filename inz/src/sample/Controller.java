@@ -1,8 +1,6 @@
 package sample;
 
 import javafx.animation.PauseTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -11,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -85,8 +82,8 @@ public class Controller implements Initializable {
         functionChooser.getItems().add("Matyasa");
         functionChooser.getItems().add("Rastrigina");
         functionChooser.getItems().add("Shaffera");
-        functionChooser.getItems().add("Griewangka");
-        functionChooser.setValue("Griewangka");
+        functionChooser.getItems().add("Griewanka");
+        functionChooser.setValue("Griewanka");
 
         functionChooser.setOnAction((event) -> {
             int selectedIndex = functionChooser.getSelectionModel().getSelectedIndex();
@@ -115,8 +112,8 @@ public class Controller implements Initializable {
             /*ustawienie zakresu*/
             rangeFromInput.setText(String.valueOf(pos.getOpFunction().getRange()));
             rangeToInput.setText(String.valueOf(0 - pos.getOpFunction().getRange()));
-            pos.setXmax(pos.getOpFunction().getRange());
-            pos.setXmin(0 - pos.getOpFunction().getRange());
+            pos.setMaxRange(pos.getOpFunction().getRange());
+            pos.setMinRange(0 - pos.getOpFunction().getRange());
 
             /*reset suwaka*/
             setSliderDefault();
@@ -135,8 +132,8 @@ public class Controller implements Initializable {
         setCanvasBackground();
 
         /*inicjalizacja inputow*/
-        rangeFromInput.setText(valueOf(pos.getXmin()));
-        rangeToInput.setText(valueOf(pos.getXmax()));
+        rangeFromInput.setText(valueOf(pos.getMinRange()));
+        rangeToInput.setText(valueOf(pos.getMaxRange()));
         particlesNumberInput.setText(valueOf(pos.getParticlesNumber()));
         iterationsNumberInput.setText(valueOf(pos.getIterationsNumber()));
         inertiaRateInput.setText(valueOf(pos.getInertiaRate()));
@@ -272,7 +269,7 @@ public class Controller implements Initializable {
             int precision = 10000;
             /*ustawienie najlepszego globalnego rozwiazania dla iteracji*/
             StringBuilder stringBuilder = new StringBuilder("f(");
-            Vector bestGlobalLocation = pos.getCalculations().getBestGlobalLocation(newValue.intValue());
+            Coordinates bestGlobalLocation = pos.getCalculations().getBestGlobalLocation(newValue.intValue());
             for (int i = 0; i < bestGlobalLocation.getValues().size(); i++) {
                 stringBuilder.append((double) Math.round(bestGlobalLocation.getValues().get(i) * precision) / precision);
                 if (i != bestGlobalLocation.getValues().size() - 1) {
@@ -286,25 +283,25 @@ public class Controller implements Initializable {
             /*wizualizacja*/
             GraphicsContext g = canvas.getGraphicsContext2D();
             int width = 600, height = 600;
-            double x = pos.getXmax() - pos.getXmin();
-            double xmin = pos.getXmin();
+            double x = pos.getMaxRange() - pos.getMinRange();
+            double minRange = pos.getMinRange();
             double scale = width / x;
             List<Particle> particleList = pos.getCalculations().getParticles(newValue.intValue());
 
             g.setFill(Color.BLACK);
             g.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             for (int i = 0; i < pos.getParticlesNumber(); i++) {
-                g.fillOval((particleList.get(i).getLocation(0) - xmin) * scale, width - (particleList.get(i).getLocation(1) - xmin) * scale, 10, 10);
+                g.fillOval((particleList.get(i).getLocation(0) - minRange) * scale, width - (particleList.get(i).getLocation(1) - minRange) * scale, 10, 10);
             }
 
             g.setFill(Color.RED);
-            g.fillOval((bestGlobalLocation.getValue(0) - xmin) * scale, width - (bestGlobalLocation.getValue(1) - xmin) * scale, 10, 10);
+            g.fillOval((bestGlobalLocation.getValue(0) - minRange) * scale, width - (bestGlobalLocation.getValue(1) - minRange) * scale, 10, 10);
 
-            minVisText.setText(valueOf(pos.getXmin()));
-            maxVisText.setText(valueOf(pos.getXmax()));
-            maxVisText1.setText(valueOf(pos.getXmax()));
-            halfVisText.setText(valueOf((pos.getXmax() + pos.getXmin()) / 2));
-            halfVisText1.setText(valueOf((pos.getXmax() + pos.getXmin()) / 2));
+            minVisText.setText(valueOf(pos.getMinRange()));
+            maxVisText.setText(valueOf(pos.getMaxRange()));
+            maxVisText1.setText(valueOf(pos.getMaxRange()));
+            halfVisText.setText(valueOf((pos.getMaxRange() + pos.getMinRange()) / 2));
+            halfVisText1.setText(valueOf((pos.getMaxRange() + pos.getMinRange()) / 2));
 
             /*info o czasteczkach dla iteracji*/
             stringBuilder = new StringBuilder();
@@ -357,23 +354,23 @@ public class Controller implements Initializable {
 
         /*zakres funkcji*/
         try {
-            pos.setXmin(Double.parseDouble(rangeFromInput.getText()));
+            pos.setMinRange(Double.parseDouble(rangeFromInput.getText()));
         } catch (Exception e) {
-            rangeFromInput.setText(valueOf(pos.getXmin()));
+            rangeFromInput.setText(valueOf(pos.getMinRange()));
         }
 
         try {
-            pos.setXmax(Double.parseDouble(rangeToInput.getText()));
+            pos.setMaxRange(Double.parseDouble(rangeToInput.getText()));
         } catch (Exception e) {
-            rangeToInput.setText(valueOf(pos.getXmax()));
+            rangeToInput.setText(valueOf(pos.getMaxRange()));
         }
 
-        if (pos.getXmin() > pos.getXmax()) {
-            double tmp = pos.getXmin();
-            pos.setXmin(pos.getXmax());
-            pos.setXmax(tmp);
-            rangeFromInput.setText(valueOf(pos.getXmin()));
-            rangeToInput.setText(valueOf(pos.getXmax()));
+        if (pos.getMinRange() > pos.getMaxRange()) {
+            double tmp = pos.getMinRange();
+            pos.setMinRange(pos.getMaxRange());
+            pos.setMaxRange(tmp);
+            rangeFromInput.setText(valueOf(pos.getMinRange()));
+            rangeToInput.setText(valueOf(pos.getMaxRange()));
         }
 
         /*liczba czasteczek*/
@@ -462,8 +459,8 @@ public class Controller implements Initializable {
     private void setCanvasBackground() {
         int width = 600, height = 600;
 
-        double xmin = pos.getXmin();
-        double scale = width / (pos.getXmax() - pos.getXmin());
+        double minRange = pos.getMinRange();
+        double scale = width / (pos.getMaxRange() - pos.getMinRange());
 
         //pos.getOpFunction().getValue();
         GraphicsContext g = canvasbackground.getGraphicsContext2D();
@@ -473,11 +470,11 @@ public class Controller implements Initializable {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 List<Double> point = new ArrayList<Double>();
-                double x = i / scale + xmin;
-                double y = xmin + (j / scale);
+                double x = i / scale + minRange;
+                double y = minRange + (j / scale);
                 point.add(x);
                 point.add(y);
-                double value = pos.getOpFunction().getValue(new Vector(point));
+                double value = pos.getOpFunction().getValue(new Coordinates(point));
 
 
                 /*przesuniencie tla wykresu poniewaz chyba mnozenie przez skale psuje polozenie*/

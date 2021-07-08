@@ -2,7 +2,7 @@ package sample;
 
 public interface OpFunction {
 // BOHACHEVSKY’EGO
-    public double getValue(Vector vector);
+    public double getValue(Coordinates coordinates);
 
     public boolean isBetter(double oldValue, double newValue);
 

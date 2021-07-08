@@ -9,10 +9,10 @@ import java.util.List;
 
 public class Calculations {
     private List<List<Particle>> particles;
-    private List<Vector> bestGlobalLocations;
+    private List<Coordinates> bestGlobalLocations;
     private List<Double> bestGlobalValues;
 
-    private double xmin, xmax;
+    private double minRange, maxRange;
     private int particlesNumber;
     private int iterationsNumber;
     private double inertiaRate;
@@ -27,8 +27,8 @@ public class Calculations {
         bestGlobalLocations = new ArrayList<>();
         bestGlobalValues = new ArrayList<>();
 
-        xmin = pos.getXmin();
-        xmax = pos.getXmax();
+        minRange = pos.getMinRange();
+        maxRange = pos.getMaxRange();
         particlesNumber = pos.getParticlesNumber();
         iterationsNumber = pos.getIterationsNumber();
         inertiaRate = pos.getInertiaRate();
@@ -43,7 +43,7 @@ public class Calculations {
 
     }
 
-    public void addNextIteration(List<Particle> particles, Vector bestGlobalLocation, double bestGlobalValue){
+    public void addNextIteration(List<Particle> particles, Coordinates bestGlobalLocation, double bestGlobalValue){
         List<Particle> particlesCopy = new ArrayList<>();
 
         for(int i = 0; i < particles.size(); i++){
@@ -64,7 +64,7 @@ public class Calculations {
         return null;
     }
 
-    public Vector getBestGlobalLocation(int iteration){
+    public Coordinates getBestGlobalLocation(int iteration){
         if(iteration < bestGlobalLocations.size()){
             return bestGlobalLocations.get(iteration);
         }
@@ -90,7 +90,7 @@ public class Calculations {
         try {
             FileWriter myWriter = new FileWriter(filename);
             myWriter.write("Optymalizowana funkcja: " + functionName + " \r\n");
-            myWriter.write("Zakres funkcji od: " + xmin + " do: " + xmax + " \r\n");
+            myWriter.write("Zakres funkcji od: " + minRange + " do: " + maxRange + " \r\n");
             myWriter.write("Liczba cząsteczek: " + particlesNumber + " \r\n");
             myWriter.write("Liczba iteracji: " + iterationsNumber + " \r\n");
             myWriter.write("Współczynnik bezwładności: " + inertiaRate + " \r\n");
@@ -133,8 +133,8 @@ public class Calculations {
             FileWriter myWriter = new FileWriter(filename);
             myWriter.write("{\n");
             myWriter.write("\"OptymalizowanaFunkcja\": " +"\""+ functionName+"\"," + "\n");
-            myWriter.write("\"ZakresFunkcjiOd\": " +"\""+ xmin+"\"," +  "\n");
-            myWriter.write("\"ZakresFunkcjiDo\": " +"\""+ xmax+"\"," + "\n");
+            myWriter.write("\"ZakresFunkcjiOd\": " +"\""+ minRange +"\"," +  "\n");
+            myWriter.write("\"ZakresFunkcjiDo\": " +"\""+ maxRange +"\"," + "\n");
             myWriter.write("\"LiczbaCzasteczek\": " +"\""+ particlesNumber+"\"," + "\n");
             myWriter.write("\"LiczbaIteracji\": " +"\""+ iterationsNumber+"\"," + "\n");
             myWriter.write("\"WspolczynnikBezwladnosci\": " +"\""+ inertiaRate+"\"," + "\n");

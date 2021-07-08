@@ -8,12 +8,12 @@ public class POS {
     private double inertiaRate; //wsp. bezwladnosci 0-1
     private double localBestAspirationRate; //wsp. dazenia do najlepszego lokalnego rozwiazania 0-1
     private double globalBestAspirationRate; //wsp. dazenia do najlepszego globalnego rozwiazania 0-1
-    private Vector bestGlobalLocation; //najlepsze globalne rozwiazanie
+    private Coordinates bestGlobalLocation; //najlepsze globalne rozwiazanie
     private double bestGlobalvalue;
     private int particlesNumber; //ilosc czasteczek
     private int iterationsNumber; //ilosc iteracji
     private List<Particle> particles; //lista czasteczek
-    private double xmin, xmax;
+    private double minRange, maxRange;
     private double learningRate; //wsp. wplywu predkosci na czasteczke
     private OpFunction opFunction;
     private Calculations calculations; //wyniki wszystkich iteracji
@@ -26,8 +26,8 @@ public class POS {
         iterationsNumber = 50;
         particles = new ArrayList<>();
         calculations = new Calculations(this);
-        xmin = -300;
-        xmax = 300;
+        minRange = -300;
+        maxRange = 300;
         learningRate = 0.5;
         opFunction = new OpFunction6();
     }
@@ -41,14 +41,14 @@ public class POS {
         Random generator = new Random();
         for (int i = 0; i < particlesNumber; i++) {
             /*polozenie poczatkowe*/
-            double x = xmin + (xmax - xmin) * generator.nextDouble();
-            double y = xmin + (xmax - xmin) * generator.nextDouble();
+            double x = minRange + (maxRange - minRange) * generator.nextDouble();
+            double y = minRange + (maxRange - minRange) * generator.nextDouble();
 
             List<Double> values = new ArrayList<Double>();
             values.add(x);
             values.add(y);
 
-            Vector location = new Vector(values);
+            Coordinates location = new Coordinates(values);
 
             /*najlepsze rozwiazanie globalne*/
             double opFunctionValue = opFunction.getValue(location);
@@ -65,7 +65,7 @@ public class POS {
 
             /*predkosc poczatkowa*/
             /*z przedzialu [-|max-min|, |max-min|]*/
-            double vxmax = Math.abs(xmax - xmin);
+            double vxmax = Math.abs(maxRange - minRange);
             double vxmin = -vxmax;
 
             x = vxmax + (vxmax - vxmin) * generator.nextDouble();
@@ -75,7 +75,7 @@ public class POS {
             values.add(x);
             values.add(y);
 
-            Vector velocity = new Vector(values);
+            Coordinates velocity = new Coordinates(values);
 
             /*utworzenie czasteczki*/
             particles.add(new Particle(location, velocity, opFunctionValue));
@@ -106,21 +106,21 @@ public class POS {
             List<Double> velocity = new ArrayList<Double>();
             velocity.add(x);
             velocity.add(y);
-            particle.setVelocity(new Vector(velocity));
+            particle.setVelocity(new Coordinates(velocity));
 
             /*nowe polozenie czasteczki*/
-            Vector location = particle.getLocation();
+            Coordinates location = particle.getLocation();
             x = location.getValue(0) + learningRate * velocity.get(0);
-            if(x > xmax) x = xmax;
-            if(x < xmin) x = xmin;
+            if(x > maxRange) x = maxRange;
+            if(x < minRange) x = minRange;
             y = location.getValue(1) + learningRate * velocity.get(1);
-            if(y > xmax) y = xmax;
-            if(y < xmin) y = xmin;
+            if(y > maxRange) y = maxRange;
+            if(y < minRange) y = minRange;
 
             List<Double> newLocation = new ArrayList<Double>();
             newLocation.add(x);
             newLocation.add(y);
-            particle.setLocation(new Vector(newLocation));
+            particle.setLocation(new Coordinates(newLocation));
 
             /*najlepsze rozwiazanie lokalne*/
             double test = particle.getBestValue();
@@ -147,7 +147,7 @@ public class POS {
         //System.out.println(bestGlobalvalue);
     }
 
-    public void setBestGlobalLocation(Vector bestGlobalLocation) {
+    public void setBestGlobalLocation(Coordinates bestGlobalLocation) {
         this.bestGlobalLocation = bestGlobalLocation;
     }
 
@@ -199,24 +199,24 @@ public class POS {
         return particles;
     }
 
-    public Vector getBestGlobalLocation() {
+    public Coordinates getBestGlobalLocation() {
         return bestGlobalLocation;
     }
 
-    public double getXmin() {
-        return xmin;
+    public double getMinRange() {
+        return minRange;
     }
 
-    public double getXmax() {
-        return xmax;
+    public double getMaxRange() {
+        return maxRange;
     }
 
-    public void setXmax(double xmax) {
-        this.xmax = xmax;
+    public void setMaxRange(double maxRange) {
+        this.maxRange = maxRange;
     }
 
-    public void setXmin(double xmin) {
-        this.xmin = xmin;
+    public void setMinRange(double minRange) {
+        this.minRange = minRange;
     }
 
     public double getLearningRate() {

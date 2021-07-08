@@ -2,33 +2,33 @@ package sample;
 
 public class Particle {
     //aktualne polozenie
-    private Vector location;
+    private Coordinates location;
     //aktualna predkosc
-    private Vector velocity;
+    private Coordinates velocity;
     //najlepsze lokalne rozwiazanie
-    private Vector bestLocation;
+    private Coordinates bestLocation;
     //wartosc najlepszego lokalnego rozwiazania
     private double bestValue;
 
-    public Particle(Vector location, Vector velocity, double bestValue){
+    public Particle(Coordinates location, Coordinates velocity, double bestValue){
         this.location = location;
         this.bestLocation = location;
         this.velocity = velocity;
         this.bestValue = bestValue;
     }
 
-    public Particle(Vector location, Vector velocity, Vector bestLocation, double bestValue){
+    public Particle(Coordinates location, Coordinates velocity, Coordinates bestLocation, double bestValue){
         this.location = location;
         this.bestLocation = bestLocation;
         this.velocity = velocity;
         this.bestValue = bestValue;
     }
 
-    public Particle(Vector location){
+    public Particle(Coordinates location){
         this.location = location;
     }
 
-    public Vector getBestLocation() {
+    public Coordinates getBestLocation() {
         return bestLocation;
     }
 
@@ -36,7 +36,7 @@ public class Particle {
         return bestLocation.getValue(x);
     }
 
-    public Vector getLocation() {
+    public Coordinates getLocation() {
         return location;
     }
 
@@ -44,7 +44,7 @@ public class Particle {
         return location.getValue(x);
     }
 
-    public Vector getVelocity() {
+    public Coordinates getVelocity() {
         return velocity;
     }
 
@@ -52,15 +52,15 @@ public class Particle {
         return velocity.getValue(x);
     }
 
-    public void setBestLocation(Vector bestLocation) {
+    public void setBestLocation(Coordinates bestLocation) {
         this.bestLocation = bestLocation;
     }
 
-    public void setLocation(Vector location) {
+    public void setLocation(Coordinates location) {
         this.location = location;
     }
 
-    public void setVelocity(Vector velocity) {
+    public void setVelocity(Coordinates velocity) {
         this.velocity = velocity;
     }
 

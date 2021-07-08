@@ -2,9 +2,9 @@ package sample;
 
 public class OpFunction1 implements OpFunction{
     // BOHACHEVSKY’EGO
-    public double getValue(Vector vector){
-        double x = vector.getValues().get(0);
-        double y = vector.getValues().get(1);
+    public double getValue(Coordinates coordinates){
+        double x = coordinates.getValues().get(0);
+        double y = coordinates.getValues().get(1);
         return x*x+2*y*y-0.3*Math.cos(Math.PI*3*x)-0.4*Math.cos(Math.PI*4*y)+0.7;
     }
 

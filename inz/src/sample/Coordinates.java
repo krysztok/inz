@@ -2,10 +2,10 @@ package sample;
 
 import java.util.List;
 
-public class Vector {
+public class Coordinates {
     private List<Double> values;
 
-    public Vector(List<Double> values){
+    public Coordinates(List<Double> values){
         this.values = values;
     }
 
