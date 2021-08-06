@@ -214,8 +214,8 @@ public class Controller implements Initializable {
                         newString = newString.replace(",", ".");
                         localBestAspirationRateInput.setText(newString);
                     }
-                    if (Double.parseDouble(localBestAspirationRateInput.getText()) > 1) {
-                        localBestAspirationRateInput.setText("1.0");
+                    if (Double.parseDouble(localBestAspirationRateInput.getText()) > 5) {
+                        localBestAspirationRateInput.setText("5.0");
                     }
                 }
             } catch (Exception e) {
@@ -233,8 +233,8 @@ public class Controller implements Initializable {
                         newString = newString.replace(",", ".");
                         globalBestAspirationRateInput.setText(newString);
                     }
-                    if (Double.parseDouble(globalBestAspirationRateInput.getText()) > 1) {
-                        globalBestAspirationRateInput.setText("1.0");
+                    if (Double.parseDouble(globalBestAspirationRateInput.getText()) > 5) {
+                        globalBestAspirationRateInput.setText("5.0");
                     }
                 }
             } catch (Exception e) {
@@ -421,11 +421,18 @@ public class Controller implements Initializable {
         /*dodanie tla*/
         setCanvasBackground();
 
+        /*liczenie czasu start*/
+        //long start = System.currentTimeMillis();
+
         /*algorytm*/
         pos.initialize();
         for (int i = 0; i < pos.getIterationsNumber(); i++) {
             pos.runIteration();
         }
+
+        /*czas wypisanie*/
+        //long finish = System.currentTimeMillis();
+        //System.out.println(finish-start);
 
         /*Animacja*/
         if (animationCheckBox.isSelected()) {
