@@ -31,7 +31,7 @@ Program pozwala ustawić oraz sprawdza poprawność wprowadzonych parametrów:
 - liczba iteracji (dodatnia liczba całkowita maksymalnie 5-cio cyfrowa)
 - współczynniki (liczby zmiennoprzecinkowe z maksymalnie 6-oma miejscami po przecinku, w zakresie <0,1>)
 
-Po wciśnięciu przycisku "licz" program przeprowadza symulację algorytmu. Następnie, przy pomocy suwaka na dole ekranu, można wybrać daną iterację, po czym na wykresie można obserwować położenie cząsteczek, a po prawej stronie można odczytać współrzędne i wartość każdej cząsteczki oraz najlepsze znalezione rozwiązanie do danej iteracji. Przyciski zapisania (zapisz jako txt i zapisz jako json) na razie nie działają.
+Po wciśnięciu przycisku "licz" program przeprowadza symulację algorytmu. Następnie, przy pomocy suwaka na dole ekranu, można wybrać daną iterację, po czym na wykresie można obserwować położenie cząsteczek, a po prawej stronie można odczytać współrzędne i wartość każdej cząsteczki oraz najlepsze znalezione rozwiązanie do danej iteracji. Przyciski zapisania (zapisz jako txt i zapisz jako json) pozwalają na zapisanie danych w wybranym formacie.
 
 # Krótki opis klas
 **Klasa Calculations**<br/>
