@@ -195,8 +195,8 @@ public class Controller implements Initializable {
                         newString = newString.replace(",", ".");
                         inertiaRateInput.setText(newString);
                     }
-                    if (Double.parseDouble(inertiaRateInput.getText()) > 1) {
-                        inertiaRateInput.setText("1.0");
+                    if (Double.parseDouble(inertiaRateInput.getText()) > 5) {
+                        inertiaRateInput.setText("5.0");
                     }
                 }
             } catch (Exception e) {
