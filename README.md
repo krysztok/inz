@@ -1,4 +1,3 @@
-
 Algorytm optymalizacji za pomocą roju cząstek<br/>
 Każda cząsteczka posiada położenie oraz wektor określający kierunek w jakim się porusza. Dodatkowo zapamiętywane jest najlepsze rozwiązanie znalezione przez każdą z cząstek oraz najlepsze rozwiązanie z całego roju. Na ich podstawie oraz na podstawie prędkości w poprzednim kroku obliczany jest nowy wektor przemieszczenia. 
 
@@ -25,10 +24,6 @@ Gdzie:<br/>
 ![gui1](https://github.com/krysztok/inz/blob/main/screen-gui1.png)
 ![gui2](https://github.com/krysztok/inz/blob/main/screen-gui2.png)
 ![gui3](https://github.com/krysztok/inz/blob/main/screen-gui3.png)
-
-Program na razie optymalizuje tylko funkcję Bohachevsky’ego, określoną wzorem:<br/>
-f (x1, x2) = x1^2 + 2 * x2^2 − 0.3 * cos(3Π ∗ x1) − 0.4cos(4Π ∗ x2) + 0.7 <br/>
-w zakresie zmienennych -50 <= xi <= 50 posiada minimum globalne dla x1=x2=0 o wartości równej 0
 
 Program pozwala ustawić oraz sprawdza poprawność wprowadzonych parametrów:
 - zakres funkcji (liczba zmiennoprzecinkowa maksymalnie 5-cio cyfrowa z 4-ema miejscami po przecinku, jeśli min > max to wartości zamienią się miejscami)
@@ -81,9 +76,3 @@ Klasa odpowiadająca za działanie GUI<br/>
 metody:<br/>
 - initialize - inicjalizuje wszystkie pola(wartości początkowe oraz sprawdzanie poprawności wpisywanych danych) oraz zachowanie suwaka<br/>
 - startCalcualtions - ustawia wszystkie wpisane parametry z GUI do klasy POS, a następnie wywołuje określoną ilość iteracji<br/>
-
-# ToDo<br/>
-- dodanie funkcji do optymalizacji(na razie jest tylko jedna na sztywno)<br/>
-- poprawienie wyświetlania punktów<br/>
-- dodanie zapisywania do txt i jsona<br/>
-- uporządkowanie kodu
