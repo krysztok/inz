@@ -110,8 +110,8 @@ public class Controller implements Initializable {
                     break;
             }
             /*ustawienie zakresu*/
-            rangeFromInput.setText(String.valueOf(pos.getOpFunction().getRange()));
-            rangeToInput.setText(String.valueOf(0 - pos.getOpFunction().getRange()));
+            rangeFromInput.setText(String.valueOf(0 - pos.getOpFunction().getRange()));
+            rangeToInput.setText(String.valueOf(pos.getOpFunction().getRange()));
             pos.setMaxRange(pos.getOpFunction().getRange());
             pos.setMinRange(0 - pos.getOpFunction().getRange());
 

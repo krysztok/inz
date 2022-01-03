@@ -70,7 +70,7 @@
                <children>
                   <ChoiceBox id="functionChooser" fx:id="functionChooser" prefHeight="25.0" prefWidth="127.0" GridPane.columnIndex="1">
                   </ChoiceBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Optymalizowana funkcja:" wrappingWidth="145.6328125" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Optymalizowana funkcja:" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Liczba cząsteczek:" wrappingWidth="138.13671875" GridPane.rowIndex="2" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Liczba iteracji:" GridPane.rowIndex="3" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Wsp. bezwładności:" GridPane.rowIndex="4" />
